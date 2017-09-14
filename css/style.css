@@ -111,6 +111,20 @@ input.text:focus, textarea:focus {
 tr.edit-row  td {
 	background:#e3f3ff !important;
 }
+fieldset{
+	border:0;
+	padding:10px;
+}
+fieldset fieldset{
+	padding:0
+}
+form span{
+	font-size:0.75em;
+}
+legend{
+	position:absolute;
+	top:-10000%;
+}
 #new_url {
 	text-align:center;
 	padding:1px;
