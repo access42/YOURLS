@@ -223,10 +223,11 @@ function yourls_html_tfooter( $params = array() ) {
 			<div id="filter_form">
 				<form action="" method="get">
 					<fieldset id="filter_options">
-					<legend>Search in short links</legend>
+					<legend><?php echo yourls__( 'Search in short links' );?></legend>
 						<?php
 
 						// First search control: text to search
+						$_label_searchfor = '<label for="search">'.yourls__( 'Search for' ).'</label>';
 						$_input = '<input type="text" id="search" name="search" class="text" value="' . yourls_esc_attr( $search_text ) . '" />';
 						$_options = array(
                             'all'     => yourls__( 'All fields' ),
@@ -234,10 +235,11 @@ function yourls_html_tfooter( $params = array() ) {
 							'url'     => yourls__( 'URL' ),
 							'title'   => yourls__( 'Title' ),
 							'ip'      => yourls__( 'IP' ),
-						);							
+						);
+						$_label_searchin = '<label for="search_in">'.yourls__( 'Search in' ).'</label>';
 						$_select = yourls_html_select( 'search_in', $_options, $search_in );
 						/* //translators: "Search for <input field with text to search> in <select dropdown with URL, title...>" */
-						yourls_se( '<label for="search">Search for</label> %1$s <label id="search_in">Search in</label> %2$s', $_input , $_select );
+						echo $_label_searchfor.$_input.$_label_searchin.$_select;
 
 						// Second search control: order by
 						$_options = array(
@@ -247,7 +249,9 @@ function yourls_html_tfooter( $params = array() ) {
 							'ip'           => yourls__( 'IP' ),
 							'clicks'       => yourls__( 'Clicks' ),
 						);
+						$_label_sortby = '<label for="sort_by">'.yourls__( 'Criteria' ).'</label>';
 						$_select = yourls_html_select( 'sort_by', $_options, $sort_by );
+						$_label_sortorder = '<label for="ort_order">'.yourls__( 'Order' ).'</label>';
 						$sort_order = isset( $sort_order ) ? $sort_order : 'desc' ;
 						$_options = array(
 							'asc'  => yourls__( 'Ascending' ),
@@ -255,23 +259,28 @@ function yourls_html_tfooter( $params = array() ) {
 						);
 						$_select2 = yourls_html_select( 'sort_order', $_options, $sort_order );
 						/* //translators: "Order by <criteria dropdown (date, clicks...)> in <order dropdown (Descending or Ascending)>" */
-						yourls_se( '<fieldset><legend>Order by</legend><label>Choose a type %1$s</label> <label for="">Order by %2$s</label></fieldset>', $_select , $_select2 );
-						
+
+						echo '<fieldset><legend>'.yourls__('Order by').'</legend>'.$_label_sortby.$_select.$_label_sortorder.$_select2.'</fieldset>';
+
 						// Third search control: Show XX rows
 						/* //translators: "Show <text field> rows" */
-						yourls_se( '<label for="perpage">Show</label> %s <span id="pre-rows">rows</span>',  '<input type="text" id="perpage" title="Number of results to show" name="perpage" class="text" aria-describedby="pre-rows" value="' . $perpage . '" />' );
-						echo "<br/>\n";
+						$_label_perrows = '<label for="perpage">'.yourls__( 'Show' ).'</label>' ;
+						$_unit_perrows= '<span id="per-rows">'.yourls__( 'rows' ).'</span>';
+						$_input_perrows = '<input type="text" id="perpage" title="'.yourls__( 'Number of results to show' ).'" name="perpage" class="text" aria-describedby="per-rows" value="' . $perpage . '" />';
+						echo $_label_perrows.$_input_perrows.$_unit_perrows.'<br/>';
 
 						// Fourth search control: Show links with more than XX clicks
 						$_options = array(
 							'more' => yourls__( 'more' ),
 							'less' => yourls__( 'less' ),
 						);
+						$_label_select = '<label for="click_filter">'.yourls__( 'Show links with' ).'</label>';
 						$_select = yourls_html_select( 'click_filter', $_options, $click_filter );
-						$_input  = '<input type="text" aria-labelledby="showlinkswith click_filter moreless_clicks" name="click_limit" id="click_limit" class="text" value="' . $click_limit . '" /> ';
+						$_label_input = '<label for="click_limit">'.yourls__( 'than' ).'</label>';
+						$_input  = '<input title="'.yourls__( 'nb_click' ).'" type="text" name="click_limit" id="click_limit" class="text" value="' . $click_limit . '" /> ';
+						$_unit_clickfilter = '<span id="nb_click">'.yourls__( 'clicks' ).'</span>';
 						/* //translators: "Show links with <more/less> than <text field> clicks" */
-						yourls_se( '<label for="click_filter" id="showlinkswith">Show links with</label> %1$s than %2$s <span id="moreless_clicks">clicks</span>', $_select, $_input );
-						echo "<br/>\n";
+						echo $_label_select.$_select.$_label_input.$_input.$_unit_clickfilter."<br/>";
 
 						// Fifth search control: Show links created before/after/between ...
 						$_options = array(
@@ -279,12 +288,15 @@ function yourls_html_tfooter( $params = array() ) {
 							'after'   => yourls__('after'),
 							'between' => yourls__('between'),
 						);
+						$_label_select = '<label for="date_filter">'.yourls__( 'Show links created' ).'</label>';
 						$_select = yourls_html_select( 'date_filter', $_options, $date_filter );
-						$_input  = '<input type="text" name="date_first" id="date_first" aria-label="Choose a date" class="text" value="' . $date_first . '" />';
+						$_label_input = '<label for="date_first">'.yourls__( 'Choose a date' ).'</label>';
+						$_input  = '<input type="text" name="date_first" id="date_first" class="text" value="' . $date_first . '" />';
 						$_and    = '<span id="date_and"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '> &amp; </span>';
-						$_input2 = '<input type="text" name="date_second" id="date_second" aria-label="Choose an end date" class="text" value="' . $date_second . '"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '/>';
+						$_label_input2 = '<label id="date_second_label" for="date_second" '. ( $date_filter === 'between' ? ' style="display:inline"' : '' ).'>'.yourls__( 'Choose an end date' ).'</label>';
+						$_input2 = '<input type="text" name="date_second" id="date_second" class="text" value="' . $date_second . '"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '/>';
 						/* //translators: "Show links created <before/after/between> <date input> <"and" if applicable> <date input if applicable>" */
-						yourls_se( '<label for="date_filter">Show links created</label> %1$s %2$s %3$s %4$s', $_select, $_input, $_and, $_input2 );
+						echo $_label_select.$_select.$_label_input.$_input.$_and.$_label_input2.$_input2."<br/>";
 						?>
 
 						<div id="filter_buttons">

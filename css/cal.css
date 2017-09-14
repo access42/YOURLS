@@ -11,4 +11,4 @@
 .datepicker tbody td.date.over { background-color: #99ffff; }
 .datepicker tbody td.date.chosen { font-weight: bold; background-color: #ccffcc; }
 /* Form defaults */
-#date_and, #date_second {display:none}
+#date_and, #date_second,#date_second_label {display:none}
