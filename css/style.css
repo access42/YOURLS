@@ -1,6 +1,6 @@
 body {
 	font-family: Verdana, Arial;
-	font-size: 12px;
+/*	font-size:0.75em;*/
 	color: #595441;
 	background:#e3f3ff;
 	text-align:center;
@@ -28,9 +28,9 @@ body {
 	clear:both;
 }
 .hide-if-no-js {display: none;}
-div, p, td {
+p, label,td {
 	font-family: Verdana, Arial;
-	font-size: 12px;
+	font-size:0.75em;
 }
 a, a:link, a:active, a:visited {
 	color: #2a85b3;
@@ -39,8 +39,17 @@ a, a:link, a:active, a:visited {
 a:hover {
 	text-decoration: underline;
 }
-h1 {height:50px;margin:0;float:right;max-width:500px;}
-h1 a {text-align:right;font-size:20px;float:right;}
+h1 {
+	height:50px;
+	margin:0;
+	float:right;
+	max-width:500px;
+	font-size:1.25em;
+}
+h1 a {
+	text-align:right;
+	float:right;
+}
 h1 a, h1 a:link, h1 a:active, h1 a:visited {color:#2a85b3}
 h1 a:hover{text-decoration:none;}
 h1 a:hover span{text-decoration:underline;color:#88c0eb}
@@ -49,11 +58,11 @@ ul#admin_menu {
 	min-height:100px;
 	list-style-type:none;
 	padding:0;
-	font-size:105%;
 }
 ul#admin_menu li {
 	color:#aaa;
 	padding:1px 0;
+	font-size:0.7875em;
 }
 ul#admin_menu li:hover {
 	list-style-type:square;
@@ -76,7 +85,7 @@ input, textarea {
 }
 Input.text, select, textarea {
 	font-family: Verdana, Arial;
-	font-size: 10px;
+	font-size:0.625em;
 	color: #595441;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
@@ -84,7 +93,7 @@ Input.text, select, textarea {
 }
 input.button {
 	font-family: Verdana, Arial;
-	font-size: 10px;
+	font-size:0.625em;
 	color: #595441;
 	font-weight: bold;
 	background-color: #FFFFFF;
@@ -111,7 +120,6 @@ tr.edit-row  td {
 }
 #new_url div {
 	background:#C7E7FF;
-	padding:4px 2px;
 }
 #new_url_form {
 	padding:4px;
@@ -142,7 +150,7 @@ td.url small a{
 /*}*/
 td.actions .button {
 	font-family: Verdana, Arial;
-	font-size: 10px;
+	font-size:0.625em;
 	color: #595441;
 	font-weight: bold;
 	background-color: #FFFFFF;
@@ -195,7 +203,7 @@ td.actions .button_stats {
 	background:transparent url(../images/chart_bar.png) 2px center no-repeat;
 }
 #main_table tfoot th, #main_table tfoot th div {
-	font-size:10px;
+	font-size:0.625em;
 }
 .error {
 	color: red;
@@ -304,7 +312,7 @@ a.bookmarklet:hover {
   left:0;
   z-index:32768;
   background-color:#efefef;
-  font-size:18px;
+  font-size:1.125em;
   color:#000;
   text-align:center;
   font-family: Arial, Verdana, sans-serif;
@@ -336,7 +344,7 @@ a.bookmarklet:hover {
 .notify-bar-close {
   position:absolute;
   left:95%;
-  font-size:11px;
+  font-size:0.6875em;
 }
 tr.plugin.active a{ font-weight:bolder;}
 body.desktop tr.plugin td.plugin_desc small{ visibility:hidden;}

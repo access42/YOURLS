@@ -3,7 +3,6 @@ table.tblSorter {
 	font-family:Verdana, Arial;
 	background-color: #CDCDCD;
 	margin:10px 0px 0px;
-	font-size: 8pt;
 	width: 100%;
 	text-align: left;
   border-spacing: 1px;
@@ -11,7 +10,7 @@ table.tblSorter {
 table.tblSorter thead tr th, table.tblSorter tfoot tr th, table.tblSorter th.header {
 	background-color: #C7E7FF;
 	border: 1px solid #FFF;
-	font-size: 8pt;
+	font-size:0.75em;
 	padding: 4px;
 }
 table.tblSorter tfoot tr th {
