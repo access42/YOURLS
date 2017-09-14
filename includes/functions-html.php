@@ -308,9 +308,9 @@ function yourls_html_tfooter( $params = array() ) {
 			?>
 
 			<nav role="navigation" id="pagination">
-				<span class="navigation">
 				<?php if( $total_pages > 1 ) { ?>
 					<span class="nav_total"><?php echo sprintf( yourls_n( '1 page', '%s pages', $total_pages ), $total_pages ); ?></span>
+				<ul class="navigation">
 					<?php
 					$base_page = yourls_admin_url( 'index.php' );
 					// Pagination offsets: min( max ( zomg! ) );
@@ -318,25 +318,25 @@ function yourls_html_tfooter( $params = array() ) {
 					$p_end = min( max( 5, $page + 2 ), $total_pages );
 					if( $p_start >= 2 ) {
 						$link = yourls_add_query_arg( array_merge( $params, array( 'page' => 1 ) ), $base_page );
-						echo '<span class="nav_link nav_first"><a href="' . $link . '" title="' . yourls_esc_attr__('Go to First Page') . '">' . yourls__( '&laquo; First' ) . '</a></span>';
+						echo '<li class="nav_link nav_first"><a href="' . $link . '" title="' . yourls_esc_attr__('Go to First Page') . '">' . yourls__( '&laquo; First' ) . '</a></li>';
 						echo '<span class="nav_link nav_prev"></span>';
 					}
 					for( $i = $p_start ; $i <= $p_end; $i++ ) {
 						if( $i == $page ) {
-							echo "<span class='nav_link nav_current'>$i</span>";
+							echo "<li class='nav_link nav_current'><span>$i</span></li>";
 						} else {
 							$link = yourls_add_query_arg( array_merge( $params, array( 'page' => $i ) ), $base_page );
-							echo '<span class="nav_link nav_goto"><a href="' . $link . '" title="' . sprintf( yourls_esc_attr( 'Page %s' ), $i ) .'">'.$i.'</a></span>';
+							echo '<li class="nav_link nav_goto"><a href="' . $link . '" title="' . sprintf( yourls_esc_attr( 'Page %s' ), $i ) .'">'.$i.'</a></li>';
 						}
 					}
 					if( ( $p_end ) < $total_pages ) {
 						$link = yourls_add_query_arg( array_merge( $params, array( 'page' => $total_pages ) ), $base_page );
 						echo '<span class="nav_link nav_next"></span>';
-						echo '<span class="nav_link nav_last"><a href="' . $link . '" title="' . yourls_esc_attr__('Go to Last Page') . '">' . yourls__( 'Last &raquo;' ) . '</a></span>';
+						echo '<li class="nav_link nav_last"><a href="' . $link . '" title="' . yourls_esc_attr__('Go to Last Page') . '">' . yourls__( 'Last &raquo;' ) . '</a></li>';
 					}
 					?>
+				</ul>
 				<?php } ?>
-				</span>
 			</nav>
 		</div>
 		<?php yourls_do_action( 'html_tfooter' ); ?>

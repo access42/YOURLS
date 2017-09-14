@@ -78,6 +78,10 @@ table.tblSorter tfoot tr {
 	float:right;
 	width:30%;
 }
+#pagination li{
+	list-style:none;
+	display:inline-block;
+}
 .navigation .nav_total{
 	display:block;
 	margin-bottom:10px;

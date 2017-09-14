@@ -147,18 +147,26 @@ td.actions .button {
 	font-weight: bold;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
+	border-right:0;
 	cursor:pointer;
 	height:22px;
 	width:22px;
 	margin-top:0px;
-	margin-right:5px;
 	display:block;
 	float:left;
 	text-indent:-9999px;
 	outline:0px;
+}
+td.actions .button:first-child{
+	-moz-border-radius:3px 0 0 3px;
+	-webkit-border-radius:3px 0 0 3px;
+	border-radius:3px 0 0 3px;
+}
+td.actions .button.button_delete{
+	-moz-border-radius:0 3px 3px 0;
+	-webkit-border-radius:0 3px 3px 0;
+	border-radius:0 3px 3px 0;
+	border: 1px solid #88c0eb;
 }
 td.actions .button:active {
 	border:1px solid #000;
