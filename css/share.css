@@ -15,7 +15,7 @@ div.share {
 	margin-right:1em;
 	padding:0 1em;
 	float:left;
-	height:140px;
+	min-height:180px;
 }
 #origlink{
 	display:inline-block;
@@ -55,7 +55,7 @@ div.share {
 
 #copylink{
 	cursor:pointer;
-	background:transparent url(../images/copy.png) 130% center no-repeat;
+	font-size:1em;
 }
 
 #copylink:hover, #copylink.hover {

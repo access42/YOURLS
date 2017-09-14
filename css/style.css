@@ -136,7 +136,7 @@ legend{
 	background:#C7E7FF;
 }
 #new_url_form {
-	padding:4px;
+	padding:4px 2px;
 }
 #new_url #feedback {
 	background:#ff8;
@@ -149,7 +149,8 @@ legend{
 #new_url #feedback .fail {
 	color:#f55;
 }
-#add-url {width:400px}
+#add-url {
+	width:300px}
 td.url small a{
 	color:#bbc;
 }

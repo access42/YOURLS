@@ -416,10 +416,11 @@ function yourls_share_box( $longurl, $shorturl, $title = '', $text='', $shortlin
 
 		<div id="copybox" class="share">
 		<?php echo $shortlink_title; ?>
+		<label for="copylink"><?php echo yourls__( 'Click to copy '); ?></label>
 			<p><input id="copylink" class="text" value="<?php echo yourls_esc_url( $shorturl ); ?>" /></p>
-			<p><small><?php yourls_e( 'Long link' ); ?>: <a id="origlink" href="<?php echo yourls_esc_url( $longurl ); ?>"><?php echo yourls_esc_url( $longurl ); ?></a></small>
+			<p><?php yourls_e( 'Long link' ); ?>: <a id="origlink" href="<?php echo yourls_esc_url( $longurl ); ?>"><?php echo yourls_esc_url( $longurl ); ?></a>
 			<?php if( yourls_do_log_redirect() ) { ?>
-			<br/><small><?php yourls_e( 'Stats' ); ?>: <a id="statlink" href="<?php echo yourls_esc_url( $shorturl ); ?>+"><?php echo yourls_esc_url( $shorturl ); ?>+</a></small>
+			<br/><?php yourls_e( 'Stats' ); ?>: <a id="statlink" href="<?php echo yourls_esc_url( $shorturl ); ?>+"><?php echo yourls_esc_url( $shorturl ); ?>+</a>
 			<input type="hidden" id="titlelink" value="<?php echo yourls_esc_attr( $title ); ?>" />
 			<?php } ?>
 			</p>
@@ -430,7 +431,8 @@ function yourls_share_box( $longurl, $shorturl, $title = '', $text='', $shortlin
 		<div id="sharebox" class="share">
 			<?php echo $share_title; ?>
 			<div id="tweet">
-				<span id="charcount" class="hide-if-no-js"><?php echo $count; ?></span>
+				<label for="tweet_body"><?php echo yourls__( 'Share text' ); ?></label>
+				<span id="charcount" class="hide-if-no-js" aria-live="polite"><?php echo $count; ?></span>
 				<textarea id="tweet_body"><?php echo $share; ?></textarea>
 			</div>
 			<p id="share_links"><?php yourls_e( 'Share with' ); ?>
