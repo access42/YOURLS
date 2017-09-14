@@ -61,6 +61,9 @@ table.tblSorter thead tr .tablesorter-headerAsc, table.tblSorter thead tr .table
 table.tblSorter tfoot tr {
 	background-color: #BCD9E8;
 }
+.tablesort{
+	background-color: #E3F3FF;
+}
 #filter_form{
 	float:left;
 	text-align:left;
