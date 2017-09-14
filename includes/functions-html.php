@@ -181,8 +181,8 @@ function yourls_html_addnew( $url = '', $keyword = '' ) {
 	<div id="new_url">
 		<div>
 			<form id="new_url_form" action="" method="get">
-				<div><strong><?php yourls_e( 'Enter the URL' ); ?></strong>:<input type="text" id="add-url" name="url" value="<?php echo $url; ?>" class="text" size="80" placeholder="http://" />
-				<?php yourls_e( 'Optional '); ?> : <strong><?php yourls_e('Custom short URL'); ?></strong>:<input type="text" id="add-keyword" name="keyword" value="<?php echo $keyword; ?>" class="text" size="8" />
+				<div><label for="add-url"><?php yourls_e( 'Enter the URL' ); ?></label>:<input type="text" id="add-url" name="url" value="<?php echo $url; ?>" class="text" size="80" />
+				<label for="add-keyword"><?php yourls_e( 'Optional'); ?>: <?php yourls_e('Custom short URL'); ?></strong>:<input type="text" id="add-keyword" name="keyword" value="<?php echo $keyword; ?>" class="text" size="8" />
 				<?php yourls_nonce_field( 'add_url', 'nonce-add' ); ?>
 				<input type="button" id="add-button" name="add-button" value="<?php yourls_e( 'Shorten The URL' ); ?>" class="button" onclick="add_link();" /></div>
 			</form>
@@ -219,27 +219,25 @@ function yourls_html_tfooter( $params = array() ) {
     $date_second  = $params['date_second'];
 
 	?>
-	<tfoot>
-		<tr>
-			<th colspan="6">
+		<div class="clear tablesort">
 			<div id="filter_form">
 				<form action="" method="get">
-					<div id="filter_options">
+					<fieldset id="filter_options">
+					<legend>Search in short links</legend>
 						<?php
 
 						// First search control: text to search
-						$_input = '<input type="text" name="search" class="text" size="12" value="' . yourls_esc_attr( $search_text ) . '" />';
+						$_input = '<input type="text" id="search" name="search" class="text" size="12" value="' . yourls_esc_attr( $search_text ) . '" />';
 						$_options = array(
                             'all'     => yourls__( 'All fields' ),
 							'keyword' => yourls__( 'Short URL' ),
 							'url'     => yourls__( 'URL' ),
 							'title'   => yourls__( 'Title' ),
 							'ip'      => yourls__( 'IP' ),
-						);
+						);							
 						$_select = yourls_html_select( 'search_in', $_options, $search_in );
 						/* //translators: "Search for <input field with text to search> in <select dropdown with URL, title...>" */
-						yourls_se( 'Search for %1$s in %2$s', $_input , $_select );
-						echo "&ndash;\n";
+						yourls_se( '<label for="search">Search for</label> %1$s <label id="search_in">Search in</label> %2$s', $_input , $_select );
 
 						// Second search control: order by
 						$_options = array(
@@ -257,12 +255,11 @@ function yourls_html_tfooter( $params = array() ) {
 						);
 						$_select2 = yourls_html_select( 'sort_order', $_options, $sort_order );
 						/* //translators: "Order by <criteria dropdown (date, clicks...)> in <order dropdown (Descending or Ascending)>" */
-						yourls_se( 'Order by %1$s %2$s', $_select , $_select2 );
-						echo "&ndash;\n";
-
+						yourls_se( '<fieldset><legend>Order by</legend><label>Choose a type %1$s</label> <label for="">Order by %2$s</label></fieldset>', $_select , $_select2 );
+						
 						// Third search control: Show XX rows
 						/* //translators: "Show <text field> rows" */
-						yourls_se( 'Show %s rows',  '<input type="text" name="perpage" class="text" size="2" value="' . $perpage . '" />' );
+						yourls_se( '<label for="perpage">Show</label> %s <span id="pre-rows">rows</span>',  '<input type="text" id="perpage" title="Number of results to show" name="perpage" class="text" size="2" aria-describedby="pre-rows" value="' . $perpage . '" />' );
 						echo "<br/>\n";
 
 						// Fourth search control: Show links with more than XX clicks
@@ -271,9 +268,9 @@ function yourls_html_tfooter( $params = array() ) {
 							'less' => yourls__( 'less' ),
 						);
 						$_select = yourls_html_select( 'click_filter', $_options, $click_filter );
-						$_input  = '<input type="text" name="click_limit" class="text" size="4" value="' . $click_limit . '" /> ';
+						$_input  = '<input type="text" aria-labelledby="showlinkswith click_filter moreless_clicks" name="click_limit" id="click_limit" class="text" size="4" value="' . $click_limit . '" /> ';
 						/* //translators: "Show links with <more/less> than <text field> clicks" */
-						yourls_se( 'Show links with %1$s than %2$s clicks', $_select, $_input );
+						yourls_se( '<label for="click_filter" id="showlinkswith">Show links with</label> %1$s than %2$s <span id="moreless_clicks">clicks</span>', $_select, $_input );
 						echo "<br/>\n";
 
 						// Fifth search control: Show links created before/after/between ...
@@ -283,11 +280,11 @@ function yourls_html_tfooter( $params = array() ) {
 							'between' => yourls__('between'),
 						);
 						$_select = yourls_html_select( 'date_filter', $_options, $date_filter );
-						$_input  = '<input type="text" name="date_first" id="date_first" class="text" size="12" value="' . $date_first . '" />';
+						$_input  = '<input type="text" name="date_first" id="date_first" aria-label="Choose a date" class="text" value="' . $date_first . '" />';
 						$_and    = '<span id="date_and"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '> &amp; </span>';
-						$_input2 = '<input type="text" name="date_second" id="date_second" class="text" size="12" value="' . $date_second . '"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '/>';
+						$_input2 = '<input type="text" name="date_second" id="date_second" aria-label="Choose an end date" class="text" value="' . $date_second . '"' . ( $date_filter === 'between' ? ' style="display:inline"' : '' ) . '/>';
 						/* //translators: "Show links created <before/after/between> <date input> <"and" if applicable> <date input if applicable>" */
-						yourls_se( 'Show links created %1$s %2$s %3$s %4$s', $_select, $_input, $_and, $_input2 );
+						yourls_se( '<label for="date_filter">Show links created</label> %1$s %2$s %3$s %4$s', $_select, $_input, $_and, $_input2 );
 						?>
 
 						<div id="filter_buttons">
@@ -295,8 +292,8 @@ function yourls_html_tfooter( $params = array() ) {
 							&nbsp;
 							<input type="button" id="submit-clear-filter" value="<?php yourls_e('Clear'); ?>" class="button" onclick="window.parent.location.href = 'index.php'" />
 						</div>
-
-					</div>
+				
+					</fieldset>
 				</form>
 			</div>
 
@@ -310,7 +307,7 @@ function yourls_html_tfooter( $params = array() ) {
 			}
 			?>
 
-			<div id="pagination">
+			<nav role="navigation" id="pagination">
 				<span class="navigation">
 				<?php if( $total_pages > 1 ) { ?>
 					<span class="nav_total"><?php echo sprintf( yourls_n( '1 page', '%s pages', $total_pages ), $total_pages ); ?></span>
@@ -340,11 +337,9 @@ function yourls_html_tfooter( $params = array() ) {
 					?>
 				<?php } ?>
 				</span>
-			</div>
-			</th>
-		</tr>
+			</nav>
+		</div>
 		<?php yourls_do_action( 'html_tfooter' ); ?>
-	</tfoot>
 	<?php
 }
 
@@ -490,7 +485,7 @@ function yourls_table_edit_row( $keyword ) {
 
 	if( $url ) {
 		$return = <<<RETURN
-<tr id="edit-$id" class="edit-row"><td colspan="5" class="edit-row"><strong>%s</strong>:<input type="text" id="edit-url-$id" name="edit-url-$id" value="$safe_url" class="text" size="70" /><br/><strong>%s</strong>: $www<input type="text" id="edit-keyword-$id" name="edit-keyword-$id" value="$keyword" class="text" size="10" /><br/><strong>%s</strong>: <input type="text" id="edit-title-$id" name="edit-title-$id" value="$safe_title" class="text" size="60" /></td><td colspan="1"><input type="button" id="edit-submit-$id" name="edit-submit-$id" value="%s" title="%s" class="button" onclick="edit_link_save('$id');" />&nbsp;<input type="button" id="edit-close-$id" name="edit-close-$id" value="%s" title="%s" class="button" onclick="edit_link_hide('$id');" /><input type="hidden" id="old_keyword_$id" value="$keyword"/><input type="hidden" id="nonce_$id" value="$nonce"/></td></tr>
+<tr id="edit-$id" class="edit-row"><td colspan="5" class="edit-row"><label for="edit-url-$id">%s</label>:<input type="text" id="edit-url-$id" name="edit-url-$id" value="$safe_url" class="text" size="70" /><br/><label for="edit-keyword-$id">%s</label>: $www<input type="text" id="edit-keyword-$id" name="edit-keyword-$id" value="$keyword" class="text" size="10" /><br/><label for="edit-title-$id">%s</label>: <input type="text" id="edit-title-$id" name="edit-title-$id" value="$safe_title" class="text" size="60" /></td><td colspan="1"><input type="button" id="edit-submit-$id" name="edit-submit-$id" value="%s" title="%s" class="button" onclick="edit_link_save('$id');" />&nbsp;<input type="button" id="edit-close-$id" name="edit-close-$id" value="%s" title="%s" class="button" onclick="edit_link_hide('$id');" /><input type="hidden" id="old_keyword_$id" value="$keyword"/><input type="hidden" id="nonce_$id" value="$nonce"/></td></tr>
 RETURN;
 		$return = sprintf( $return, yourls__( 'Long URL' ), yourls__( 'Short URL' ), yourls__( 'Title' ), yourls__( 'Save' ), yourls__( 'Save new values' ), yourls__( 'Cancel' ), yourls__( 'Cancel editing' ) );
 	} else {
@@ -527,27 +522,27 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 		'stats' => array(
 			'href'    => $statlink,
 			'id'      => "statlink-$id",
-			'title'   => yourls_esc_attr__( 'Stats' ),
+			'title'   => yourls_esc_attr__( 'Stats' )." for ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Stats' ),
 		),
 		'share' => array(
 			'href'    => '',
 			'id'      => "share-button-$id",
-			'title'   => yourls_esc_attr__( 'Share' ),
+			'title'   => yourls_esc_attr__( 'Share' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Share' ),
 			'onclick' => "toggle_share('$id');return false;",
 		),
 		'edit' => array(
 			'href'    => $edit_link,
 			'id'      => "edit-button-$id",
-			'title'   => yourls_esc_attr__( 'Edit' ),
+			'title'   => yourls_esc_attr__( 'Edit' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Edit' ),
 			'onclick' => "edit_link_display('$id');return false;",
 		),
 		'delete' => array(
 			'href'    => $delete_link,
 			'id'      => "delete-button-$id",
-			'title'   => yourls_esc_attr__( 'Delete' ),
+			'title'   => yourls_esc_attr__( 'Delete' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Delete' ),
 			'onclick' => "remove_link('$id');return false;",
 		)
@@ -690,7 +685,15 @@ function yourls_table_tbody_end() {
  *
  */
 function yourls_table_end() {
-	echo yourls_apply_filter( 'table_end', '</table></main>' );
+	echo yourls_apply_filter( 'table_end', '</table>' );
+}
+
+/**
+ * Echo the main end tag
+ *
+ */
+function yourls_main_end() {
+	echo yourls_apply_filter( 'main_end', '</main>' );
 }
 
 /**
@@ -802,7 +805,7 @@ function yourls_html_menu() {
 					printf( '<li id="admin_menu_%s_link" class="admin_menu_sublevel admin_menu_sublevel_%s"><a href="%s" %s>%s</a>', $link, $link, $ar['url'], $title, $anchor );
 				}
 			}
-			echo "</ul>\n";
+			echo "</ul></nav>\n";
 		}
 	}
 
