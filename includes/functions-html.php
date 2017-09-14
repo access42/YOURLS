@@ -181,8 +181,8 @@ function yourls_html_addnew( $url = '', $keyword = '' ) {
 	<div id="new_url">
 		<div>
 			<form id="new_url_form" action="" method="get">
-				<div><label for="add-url"><?php yourls_e( 'Enter the URL' ); ?></label>:<input type="text" id="add-url" name="url" value="<?php echo $url; ?>" class="text" size="80" />
-				<label for="add-keyword"><?php yourls_e( 'Optional'); ?>: <?php yourls_e('Custom short URL'); ?></strong>:<input type="text" id="add-keyword" name="keyword" value="<?php echo $keyword; ?>" class="text" size="8" />
+				<div><label for="add-url"><?php yourls_e( 'Enter the URL' ); ?></label>:<input type="text" id="add-url" name="url" value="<?php echo $url; ?>" class="text" />
+				<label for="add-keyword"><?php yourls_e( 'Optional'); ?>: <?php yourls_e('Custom short URL'); ?></strong>:<input type="text" id="add-keyword" name="keyword" value="<?php echo $keyword; ?>" class="text" />
 				<?php yourls_nonce_field( 'add_url', 'nonce-add' ); ?>
 				<input type="button" id="add-button" name="add-button" value="<?php yourls_e( 'Shorten The URL' ); ?>" class="button" onclick="add_link();" /></div>
 			</form>
@@ -227,7 +227,7 @@ function yourls_html_tfooter( $params = array() ) {
 						<?php
 
 						// First search control: text to search
-						$_input = '<input type="text" id="search" name="search" class="text" size="12" value="' . yourls_esc_attr( $search_text ) . '" />';
+						$_input = '<input type="text" id="search" name="search" class="text" value="' . yourls_esc_attr( $search_text ) . '" />';
 						$_options = array(
                             'all'     => yourls__( 'All fields' ),
 							'keyword' => yourls__( 'Short URL' ),
@@ -259,7 +259,7 @@ function yourls_html_tfooter( $params = array() ) {
 						
 						// Third search control: Show XX rows
 						/* //translators: "Show <text field> rows" */
-						yourls_se( '<label for="perpage">Show</label> %s <span id="pre-rows">rows</span>',  '<input type="text" id="perpage" title="Number of results to show" name="perpage" class="text" size="2" aria-describedby="pre-rows" value="' . $perpage . '" />' );
+						yourls_se( '<label for="perpage">Show</label> %s <span id="pre-rows">rows</span>',  '<input type="text" id="perpage" title="Number of results to show" name="perpage" class="text" aria-describedby="pre-rows" value="' . $perpage . '" />' );
 						echo "<br/>\n";
 
 						// Fourth search control: Show links with more than XX clicks
@@ -268,7 +268,7 @@ function yourls_html_tfooter( $params = array() ) {
 							'less' => yourls__( 'less' ),
 						);
 						$_select = yourls_html_select( 'click_filter', $_options, $click_filter );
-						$_input  = '<input type="text" aria-labelledby="showlinkswith click_filter moreless_clicks" name="click_limit" id="click_limit" class="text" size="4" value="' . $click_limit . '" /> ';
+						$_input  = '<input type="text" aria-labelledby="showlinkswith click_filter moreless_clicks" name="click_limit" id="click_limit" class="text" value="' . $click_limit . '" /> ';
 						/* //translators: "Show links with <more/less> than <text field> clicks" */
 						yourls_se( '<label for="click_filter" id="showlinkswith">Show links with</label> %1$s than %2$s <span id="moreless_clicks">clicks</span>', $_select, $_input );
 						echo "<br/>\n";
@@ -355,7 +355,7 @@ function yourls_html_tfooter( $params = array() ) {
  * @return string HTML content of the select element
  */
 function yourls_html_select( $name, $options, $selected = '', $display = false ) {
-	$html = "<select name='$name' id='$name' size='1'>\n";
+	$html = "<select name='$name' id='$name' >\n";
 	foreach( $options as $value => $text ) {
 		$html .= "<option value='$value' ";
 		$html .= $selected == $value ? ' selected="selected"' : '';
@@ -404,7 +404,7 @@ function yourls_share_box( $longurl, $shorturl, $title = '', $text='', $shortlin
 
 		<div id="copybox" class="share">
 		<?php echo $shortlink_title; ?>
-			<p><input id="copylink" class="text" size="32" value="<?php echo yourls_esc_url( $shorturl ); ?>" /></p>
+			<p><input id="copylink" class="text" value="<?php echo yourls_esc_url( $shorturl ); ?>" /></p>
 			<p><small><?php yourls_e( 'Long link' ); ?>: <a id="origlink" href="<?php echo yourls_esc_url( $longurl ); ?>"><?php echo yourls_esc_url( $longurl ); ?></a></small>
 			<?php if( yourls_do_log_redirect() ) { ?>
 			<br/><small><?php yourls_e( 'Stats' ); ?>: <a id="statlink" href="<?php echo yourls_esc_url( $shorturl ); ?>+"><?php echo yourls_esc_url( $shorturl ); ?>+</a></small>
@@ -485,7 +485,7 @@ function yourls_table_edit_row( $keyword ) {
 
 	if( $url ) {
 		$return = <<<RETURN
-<tr id="edit-$id" class="edit-row"><td colspan="5" class="edit-row"><label for="edit-url-$id">%s</label>:<input type="text" id="edit-url-$id" name="edit-url-$id" value="$safe_url" class="text" size="70" /><br/><label for="edit-keyword-$id">%s</label>: $www<input type="text" id="edit-keyword-$id" name="edit-keyword-$id" value="$keyword" class="text" size="10" /><br/><label for="edit-title-$id">%s</label>: <input type="text" id="edit-title-$id" name="edit-title-$id" value="$safe_title" class="text" size="60" /></td><td colspan="1"><input type="button" id="edit-submit-$id" name="edit-submit-$id" value="%s" title="%s" class="button" onclick="edit_link_save('$id');" />&nbsp;<input type="button" id="edit-close-$id" name="edit-close-$id" value="%s" title="%s" class="button" onclick="edit_link_hide('$id');" /><input type="hidden" id="old_keyword_$id" value="$keyword"/><input type="hidden" id="nonce_$id" value="$nonce"/></td></tr>
+<tr id="edit-$id" class="edit-row"><td colspan="5" class="edit-row"><label for="edit-url-$id">%s</label>:<input type="text" id="edit-url-$id" name="edit-url-$id" value="$safe_url" class="text" /><br/><label for="edit-keyword-$id">%s</label>: $www<input type="text" id="edit-keyword-$id" name="edit-keyword-$id" value="$keyword" class="text" /><br/><label for="edit-title-$id">%s</label>: <input type="text" id="edit-title-$id" name="edit-title-$id" value="$safe_title" class="text" /></td><td colspan="1"><input type="button" id="edit-submit-$id" name="edit-submit-$id" value="%s" title="%s" class="button" onclick="edit_link_save('$id');" />&nbsp;<input type="button" id="edit-close-$id" name="edit-close-$id" value="%s" title="%s" class="button" onclick="edit_link_hide('$id');" /><input type="hidden" id="old_keyword_$id" value="$keyword"/><input type="hidden" id="nonce_$id" value="$nonce"/></td></tr>
 RETURN;
 		$return = sprintf( $return, yourls__( 'Long URL' ), yourls__( 'Short URL' ), yourls__( 'Title' ), yourls__( 'Save' ), yourls__( 'Save new values' ), yourls__( 'Cancel' ), yourls__( 'Cancel editing' ) );
 	} else {
@@ -729,11 +729,11 @@ function yourls_login_screen( $error_msg = '' ) {
 			?>
 			<p>
 				<label for="username"><?php yourls_e( 'Username' ); ?></label><br />
-				<input type="text" id="username" name="username" size="30" class="text" />
+				<input type="text" id="username" name="username" class="text" />
 			</p>
 			<p>
 				<label for="password"><?php yourls_e( 'Password' ); ?></label><br />
-				<input type="password" id="password" name="password" size="30" class="text" />
+				<input type="password" id="password" name="password" class="text" />
 			</p>
 			<p style="text-align: right;">
 				<input type="submit" id="submit" name="submit" value="<?php yourls_e( 'Login' ); ?>" class="button" />
