@@ -40,13 +40,13 @@ yourls_html_menu();
 			<thead>
 			<tr>
 				<td>&nbsp;</td>
-				<th><?php yourls_e( 'Standard (new page)' ); ?></th>
-				<th><?php yourls_e( 'Instant (popup)' ); ?></th>
+				<th scope="col"><?php yourls_e( 'Standard (new page)' ); ?></th>
+				<th scope="col"><?php yourls_e( 'Instant (popup)' ); ?></th>
 			</tr>
 			</thead>
 			<tbody>
 			<tr>
-				<th class="header"><?php yourls_e( 'Simple' ); ?></th>
+				<th scope="row" class="header"><?php yourls_e( 'Simple' ); ?></th>
 
 				<td>
                 <?php $js_code = <<<STANDARD_SIMPLE
@@ -108,7 +108,7 @@ POPUP_SIMPLE;
 
             </tr>
 			<tr>
-				<th class="header"><?php yourls_e( 'Custom Keyword' ); ?></th>
+				<th scope="row" class="header"><?php yourls_e( 'Custom Keyword' ); ?></th>
 
 				<td>
                 <?php $js_code = <<<CUSTOM_STANDARD
