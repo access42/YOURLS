@@ -131,15 +131,15 @@ tr.edit-row  td {
 td.url small a{
 	color:#bbc;
 }
-body.desktop td.actions input,body.desktop  td.actions a {
-	visibility:hidden;
-}
-td.actions input.disabled, td.actions input.loading {
-	visibility:visible;
-}
-tr:hover td.actions input, tr:hover td.actions a {
-	visibility:visible;
-}
+/*body.desktop td.actions input,body.desktop  td.actions a {*/
+/*	visibility:hidden;*/
+/*}*/
+/*td.actions input.disabled, td.actions input.loading {*/
+/*	visibility:visible;*/
+/*}*/
+/*tr:hover td.actions input, tr:hover td.actions a {*/
+/*	visibility:visible;*/
+/*}*/
 td.actions .button {
 	font-family: Verdana, Arial;
 	font-size: 10px;
