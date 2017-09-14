@@ -645,7 +645,7 @@ class yourls_table_add_row_callback {
  *
  */
 function yourls_table_head() {
-	$start = '<table id="main_table" class="tblSorter" cellpadding="0" cellspacing="1"><thead><tr>'."\n";
+	$start = '<table id="main_table" class="tblSorter"><thead><tr>'."\n";
 	echo yourls_apply_filter( 'table_head_start', $start );
 
 	$cells = yourls_apply_filter( 'table_head_cells', array(
@@ -657,7 +657,7 @@ function yourls_table_head() {
 		'actions'  => yourls__( 'Actions' )
 	) );
 	foreach( $cells as $k => $v ) {
-		echo "<th id='main_table_head_$k'>$v</th>\n";
+		echo "<th scope='col' id='main_table_head_$k'>$v</th>\n";
 	}
 
 	$end = "</tr></thead>\n";
