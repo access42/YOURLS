@@ -75,14 +75,14 @@ yourls_html_menu();
 	
 	<p id="plugin_summary"><?php /* //translators: "you have '3 plugins' installed and '1' activated" */ yourls_se( 'You currently have <strong>%1$s</strong> installed, and <strong>%2$s</strong> activated', $plugins_count, $count_active ); ?></p>
 
-	<table id="main_table" class="tblSorter" cellpadding="0" cellspacing="1">
+	<table id="main_table" class="tblSorter">
 	<thead>
 		<tr>
-			<th><?php yourls_e( 'Plugin Name' ); ?></th>
-			<th><?php yourls_e( 'Version' ); ?></th>
-			<th><?php yourls_e( 'Description' ); ?></th>
-			<th><?php yourls_e( 'Author' ); ?></th>
-			<th><?php yourls_e( 'Action' ); ?></th>
+			<th scope="col"><?php yourls_e( 'Plugin Name' ); ?></th>
+			<th scope="col"><?php yourls_e( 'Version' ); ?></th>
+			<th scope="col"><?php yourls_e( 'Description' ); ?></th>
+			<th scope="col"><?php yourls_e( 'Author' ); ?></th>
+			<th scope="col"><?php yourls_e( 'Action' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
