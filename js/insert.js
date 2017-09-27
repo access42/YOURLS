@@ -216,6 +216,7 @@ function toggle_share(id) {
 	var shorturl = $('#keyword-'+id+' a:first').attr('href');
 	
 	toggle_share_fill_boxes( longurl, shorturl, title );
+	$('#shareboxes').focus();
 }
 
 // When "Search" is clicked, split search text to beat servers which don't like query string with "http://"
