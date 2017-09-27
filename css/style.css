@@ -39,7 +39,7 @@ p, label,td {
 	font-size:0.75em;
 }
 
-p label{
+p label, td label{
 	font-size:1em;
 }
 a, a:link, a:active, a:visited {
