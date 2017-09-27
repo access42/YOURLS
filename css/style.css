@@ -7,6 +7,11 @@ body {
 	margin-top:0px;
 	padding-top:10px;
 }
+
+*:focus{
+	outline:2px solid orange;
+}
+
 #wrap {
 	width:60em;
 	max-width:95%;
@@ -190,7 +195,6 @@ td.actions .button {
 	display:block;
 	float:left;
 	text-indent:-9999px;
-	outline:0px;
 }
 td.actions .button:first-child{
 	-moz-border-radius:3px 0 0 3px;
