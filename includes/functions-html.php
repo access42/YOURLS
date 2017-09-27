@@ -538,6 +538,7 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 			'id'      => "statlink-$id",
 			'title'   => yourls_esc_attr__( 'Stats' )." for ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Stats' ),
+			'img'     => 'chart_bar.png',
 		),
 		'share' => array(
 			'href'    => '',
@@ -545,6 +546,7 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 			'title'   => yourls_esc_attr__( 'Share' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Share' ),
 			'onclick' => "toggle_share('$id');return false;",
+			'img'     => 'share.png',
 		),
 		'edit' => array(
 			'href'    => $edit_link,
@@ -552,6 +554,7 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 			'title'   => yourls_esc_attr__( 'Edit' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Edit' ),
 			'onclick' => "edit_link_display('$id');return false;",
+			'img'     => 'pencil.png',
 		),
 		'delete' => array(
 			'href'    => $delete_link,
@@ -559,6 +562,7 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 			'title'   => yourls_esc_attr__( 'Delete' )." ".yourls_esc_html( $title ),
 			'anchor'  => yourls__( 'Delete' ),
 			'onclick' => "remove_link('$id');return false;",
+			'img'     => 'delete.png',
 		)
 	);
 	$actions = yourls_apply_filter( 'table_add_row_action_array', $actions );
@@ -567,8 +571,8 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 	$action_links = '';
 	foreach( $actions as $key => $action ) {
 		$onclick = isset( $action['onclick'] ) ? 'onclick="' . $action['onclick'] . '"' : '' ;
-		$action_links .= sprintf( '<a href="%s" id="%s" title="%s" class="%s" %s>%s</a>',
-			$action['href'], $action['id'], $action['title'], 'button button_'.$key, $onclick, $action['anchor']
+		$action_links .= sprintf( '<a href="%s" id="%s" title="%s" class="%s" %s><img src="../images/%s" alt="%s" /></a>',
+			$action['href'], $action['id'], $action['title'], 'button button_'.$key, $onclick,$action['img'], $action['anchor']
 		);
 	}
 	$action_links = yourls_apply_filter( 'action_links', $action_links, $keyword, $url, $ip, $clicks, $timestamp );
