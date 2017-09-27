@@ -1,7 +1,7 @@
 body {
 	font-family: Verdana, Arial;
 /*	font-size:0.75em;*/
-	color: #595441;
+	color: #54503C;
 	background:#e3f3ff;
 	text-align:center;
 	margin-top:0px;
@@ -14,10 +14,10 @@ body {
 	background:white;
 	text-align:left;
 	padding:5px 20px 10px 20px;
-	border-left:3px solid #2a85b3;
-	border-right:3px solid #2a85b3;
-	border-bottom:3px solid #2a85b3;
-	border-top:3px solid #2a85b3;
+	border-left:3px solid #3371A8;
+	border-right:3px solid #3371A8;
+	border-bottom:3px solid #3371A8;
+	border-top:3px solid #3371A8;
 	-moz-border-radius:20px;
 	-webkit-border-radius:20px;
 	border-radius:20px;
@@ -37,7 +37,7 @@ p label{
 	font-size:1em;
 }
 a, a:link, a:active, a:visited {
-	color: #2a85b3;
+	color: #3371A8;
 	text-decoration: none;
 }
 a:hover {
@@ -54,7 +54,7 @@ h1 a {
 	text-align:right;
 	float:right;
 }
-h1 a, h1 a:link, h1 a:active, h1 a:visited {color:#2a85b3}
+h1 a, h1 a:link, h1 a:active, h1 a:visited {color:#3371A8}
 h1 a:hover{text-decoration:none;}
 h1 a:hover span{text-decoration:underline;color:#88c0eb}
 
@@ -64,7 +64,7 @@ ul#admin_menu {
 	padding:0;
 }
 ul#admin_menu li {
-	color:#aaa;
+	color:#666;
 	padding:1px 0;
 	font-size:0.7875em;
 }
@@ -90,7 +90,7 @@ input, textarea {
 Input.text, select, textarea {
 	font-family: Verdana, Arial;
 	font-size:0.625em;
-	color: #595441;
+	color: #54503C;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
 	margin:1px;
@@ -98,18 +98,18 @@ Input.text, select, textarea {
 input.button {
 	font-family: Verdana, Arial;
 	font-size:0.625em;
-	color: #595441;
+	color: #54503C;
 	font-weight: bold;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
 	cursor:pointer;
 }
 input.primary {
-	border:2px solid #2A85B3;
+	border:2px solid #3371A8;
 	background:#fafafe;
 }
 input.text:focus, textarea:focus {
-	border:2px solid #2A85B3;
+	border:2px solid #3371A8;
 	margin:0px;
 }
 
@@ -163,7 +163,7 @@ legend{
 #add-url {
 	width:300px}
 td.url small a{
-	color:#bbc;
+	color:#716F91;
 }
 /*body.desktop td.actions input,body.desktop  td.actions a {*/
 /*	visibility:hidden;*/
@@ -177,7 +177,7 @@ td.url small a{
 td.actions .button {
 	font-family: Verdana, Arial;
 	font-size:0.625em;
-	color: #595441;
+	color: #54503C;
 	font-weight: bold;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
@@ -280,7 +280,7 @@ td.actions .button_stats {
 	padding:0 2px;
 }
 a.bookmarklet {
-	border:2px solid #2a85b3;
+	border:2px solid #3371A8;
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 	border-radius:3px;
@@ -305,7 +305,7 @@ a.bookmarklet:hover {
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
-	border:2px solid #2a85b3;
+	border:2px solid #3371A8;
 	-moz-border-radius-bottomleft:30px;
 	-moz-border-radius-bottomright:30px;
 	-webkit-border-bottom-left-radius:25px;
@@ -319,7 +319,7 @@ a.bookmarklet:hover {
 }
 
 .notice {
-	border:1px solid #2a85b3;
+	border:1px solid #3371A8;
 	background: #F3FAFD;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
