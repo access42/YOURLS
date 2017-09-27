@@ -62,6 +62,8 @@ table.tblSorter tfoot tr {
 	background-color: #BCD9E8;
 }
 .tablesort{
+	border:1px solid #CDCDCD;
+	border-top:0;
 	background-color: #E3F3FF;
 }
 #filter_form{
@@ -72,10 +74,13 @@ table.tblSorter tfoot tr {
 #filter_buttons{
 	float:right;
 }
-#pagination{
+#pagination {
+	font-weight:bold;
+	font-size:0.7em;
 	text-align:right;
 	float:right;
 	width:30%;
+	padding:5px 5px 0 0;
 }
 #pagination li{
 	list-style:none;

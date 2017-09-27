@@ -112,6 +112,12 @@ input.text:focus, textarea:focus {
 	border:2px solid #2A85B3;
 	margin:0px;
 }
+
+#filter_options label,
+#filter_options span{
+	font-weight:bold;
+	font-size:0.6em;
+}
 tr.edit-row  td {
 	background:#e3f3ff !important;
 }
@@ -120,7 +126,8 @@ fieldset{
 	padding:10px;
 }
 fieldset fieldset{
-	padding:0
+	padding:0;
+	margin:0
 }
 form span{
 	font-size:0.75em;
