@@ -10,7 +10,7 @@ div.share {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	border:2px solid #88c0eb;
+	border:2px solid #3371A8;
 	background:#fff;
 	margin-right:1em;
 	padding:0 1em;
@@ -38,7 +38,7 @@ div.share {
 }
 #charcount {
 	padding-left:5px;
-	color:#88c0eb;
+	color:#3371A8;
 }
 #charcount.negative {
 	color:red;
