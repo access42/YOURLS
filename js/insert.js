@@ -129,6 +129,7 @@ function edit_link_hide(id) {
 	$("#edit-" + id).fadeOut(200, function(){
 		end_disable('#actions-'+id+' .button');
 	});
+	$("#delete-button-" + id).focus();
 }
 
 // Save edition of a link
