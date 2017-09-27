@@ -32,6 +32,10 @@ p, label,td {
 	font-family: Verdana, Arial;
 	font-size:0.75em;
 }
+
+p label{
+	font-size:1em;
+}
 a, a:link, a:active, a:visited {
 	color: #2a85b3;
 	text-decoration: none;
