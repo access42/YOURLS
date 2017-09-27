@@ -251,7 +251,7 @@ function yourls_html_tfooter( $params = array() ) {
 						);
 						$_label_sortby = '<label for="sort_by">'.yourls__( 'Criteria' ).'</label>';
 						$_select = yourls_html_select( 'sort_by', $_options, $sort_by );
-						$_label_sortorder = '<label for="ort_order">'.yourls__( 'Order' ).'</label>';
+						$_label_sortorder = '<label for="sort_order">'.yourls__( 'Order' ).'</label>';
 						$sort_order = isset( $sort_order ) ? $sort_order : 'desc' ;
 						$_options = array(
 							'asc'  => yourls__( 'Ascending' ),
@@ -671,7 +671,7 @@ function yourls_table_head() {
 		'actions'  => yourls__( 'Actions' )
 	) );
 	foreach( $cells as $k => $v ) {
-		echo "<th scope='col' id='main_table_head_$k'>$v</th>\n";
+		echo "<th tabindex='0' scope='col' id='main_table_head_$k'>$v</th>\n";
 	}
 
 	$end = "</tr></thead>\n";
