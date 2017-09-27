@@ -410,7 +410,7 @@ function yourls_share_box( $longurl, $shorturl, $title = '', $text='', $shortlin
 	$_url   = rawurlencode( $shorturl );
 	?>
 
-	<div id="shareboxes" <?php echo $hidden; ?>>
+	<div tabindex="-1" id="shareboxes" <?php echo $hidden; ?>>
 
 		<?php yourls_do_action( 'shareboxes_before', $longurl, $shorturl, $title, $text ); ?>
 

@@ -179,8 +179,9 @@ function zebra_table() {
 
 // Ready to add another URL
 function add_link_reset() {
-	$('#add-url').val('').focus();
+	$('#add-url').val('');
 	$('#add-keyword').val('');
+	$('#shareboxes').focus();
 }
 
 // Increment URL counters
