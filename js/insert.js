@@ -166,6 +166,7 @@ function edit_link_save(id) {
 			end_disable("#edit-close-" + id);
 			if(data.status == 'success') {
 				end_disable("#actions-" + id + ' .button');
+				$("#delete-button-" + id).focus();
 			}
 		}
 	);
