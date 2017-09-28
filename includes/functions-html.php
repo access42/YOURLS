@@ -572,7 +572,7 @@ function yourls_table_add_row( $keyword, $url, $title = '', $ip, $clicks, $times
 	// Action link buttons: the HTML
 	$action_links = '';
 	foreach( $actions as $key => $action ) {
-		$onclick = isset( $action['onclick'] ) ? 'onclick="' . $action['onclick'] . '"' : '' ;
+		$onclick = isset( $action['onclick'] ) ? 'role="button" onclick="' . $action['onclick'] . '"' : '' ;
 		$action_links .= sprintf( '<a href="%s" id="%s" title="%s" class="%s" %s><img src="../images/%s" alt="%s" /></a>',
 			$action['href'], $action['id'], $action['title'], 'button button_'.$key, $onclick,$action['img'], $action['anchor']
 		);
