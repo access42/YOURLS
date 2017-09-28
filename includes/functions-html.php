@@ -100,7 +100,7 @@ function yourls_html_head( $context = 'index', $title = '' ) {
 	<?php if ( $tablesorter ) { ?>
 		<link rel="stylesheet" href="<?php yourls_site_url(); ?>/css/tablesaw/tablesaw.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php yourls_site_url(); ?>/css/table.css?v=<?php echo YOURLS_VERSION; ?>" type="text/css" media="screen" />
-		<script src="<?php yourls_site_url(); ?>/js/tablesaw/tablesaw.js" type="text/javascript"></script>
+		<script src="<?php yourls_site_url(); ?>/js/tablesaw/tablesaw.jquery.js" type="text/javascript"></script>
 		<script src="<?php yourls_site_url(); ?>/js/tablesaw/tablesaw-init.js" type="text/javascript"></script>
 	<?php } ?>
 	<?php if ( $insert ) { ?>
@@ -658,7 +658,6 @@ class yourls_table_add_row_callback {
 		return $this->elements[ $matches[1] ];
     }
 }
-
 
 /**
  * Echo the main table head
