@@ -1,79 +1,74 @@
-/* jQuery Table Sorter */
-table.tblSorter {
+table.tablesaw {
 	font-family:Verdana, Arial;
-	background-color: #CDCDCD;
+	border:1px solid #CDCDCD;
 	margin:10px 0px 0px;
 	width: 100%;
 	text-align: left;
   border-spacing: 1px;
 }
-table.tblSorter thead tr th, table.tblSorter tfoot tr th, table.tblSorter th.header {
+
+table.tablesaw tr{
+	border:1px solid #CDCDCD;
+}
+
+table.tablesaw thead tr th, table.tablesaw tfoot tr th, table.tablesaw th.header {
 	background-color: #C7E7FF;
-	border: 1px solid #FFF;
 	font-size:0.75em;
 	padding: 4px;
 }
-table.tblSorter tfoot tr th {
-	background-color: #E3F3FF;
-}
-table.tblSorter thead tr .tablesorter-header {
+
+table.tablesaw thead tr .tablesorter-header {
 	background-image: url('../images/bg.gif');
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
 	padding-right:10px;
 }
-table.tblSorter thead tr .sorter-false {
+
+table.tablesaw thead tr .sorter-false {
 	background-image: none;
 	cursor:default;
 }
-table.tblSorter tbody td {
+
+table.tablesaw tbody td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
 	vertical-align: top;
 }
-table.tblSorter tbody tr.normal-row td {
+
+table.tablesaw tbody tr:nth-child(odd) td {
 	background: #F1F9FF;
 }
-table.tblSorter tbody tr.alt-row td {
 
+table.tablesaw tbody tr:nth-child(even) td {
+	background:#fff
 }
-table.tblSorter tbody tr.normal-row:hover td  {
+
+table.tablesaw tbody tr:nth-child(odd):hover td  {
 	background-color:#F1FFF6;
 }
-table.tblSorter tbody tr.alt-row:hover td  {
+
+table.tablesaw tbody tr:nth-child(even):hover td  {
 	background-color:#F1FFF6;
 }
-table.tblSorter thead tr .tablesorter-headerDesc {
-	background-image: url('../images/desc.gif');
-	background-repeat: no-repeat;
-	background-position: center right;
-}
-table.tblSorter thead tr .tablesorter-headerAsc {
-	background-image: url('../images/asc.gif');
-	background-repeat: no-repeat;
-	background-position: center right;
-}
-table.tblSorter thead tr .tablesorter-headerAsc, table.tblSorter thead tr .tablesorter-headerDesc {
-	background-color: #91C7F2;
-}
-table.tblSorter tfoot tr {
-	background-color: #BCD9E8;
-}
+
 .tablesort{
 	border:1px solid #CDCDCD;
 	border-top:0;
 	background-color: #E3F3FF;
 }
+
 #filter_form{
 	float:left;
 	text-align:left;
 	max-width:69%;
 }
+
 #filter_buttons{
 	float:right;
 }
+
 #pagination {
 	font-weight:bold;
 	font-size:0.7em;
@@ -82,14 +77,17 @@ table.tblSorter tfoot tr {
 	width:30%;
 	padding:5px 5px 0 0;
 }
+
 #pagination li{
 	list-style:none;
 	display:inline-block;
 }
+
 .navigation .nav_total{
 	display:block;
 	margin-bottom:10px;
 }
+
 .navigation .nav_link a, .navigation .nav_current {
 	border:1px solid #CDCDCD;
 	margin:0px 2px;
@@ -99,16 +97,20 @@ table.tblSorter tfoot tr {
 	min-width:15px;
 	display:inline-block;
 }
+
 .navigation .nav_current {
 	border:0px;
 	background:none;
 }
+
 .navigation .nav_first a, .navigation .nav_last a {
 	padding:2px 2px;
 }
+
 .navigation .nav_prev:before, .navigation .nav_next:after {
 	content:"...";
 }
+
 .navigation .nav_link a:hover {
 	border:1px solid #BCD9E8;
 	background:#BCD9E8;

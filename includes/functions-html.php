@@ -98,8 +98,10 @@ function yourls_html_head( $context = 'index', $title = '' ) {
 		<script src="<?php yourls_site_url(); ?>/js/infos.js?v=<?php echo YOURLS_VERSION; ?>" type="text/javascript"></script>
 	<?php } ?>
 	<?php if ( $tablesorter ) { ?>
-		<link rel="stylesheet" href="<?php yourls_site_url(); ?>/css/tablesorter.css?v=<?php echo YOURLS_VERSION; ?>" type="text/css" media="screen" />
-		<script src="<?php yourls_site_url(); ?>/js/jquery.tablesorter.min.js?v=<?php echo YOURLS_VERSION; ?>" type="text/javascript"></script>
+		<link rel="stylesheet" href="<?php yourls_site_url(); ?>/css/tablesaw/tablesaw.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php yourls_site_url(); ?>/css/table.css?v=<?php echo YOURLS_VERSION; ?>" type="text/css" media="screen" />
+		<script src="<?php yourls_site_url(); ?>/js/tablesaw/tablesaw.js" type="text/javascript"></script>
+		<script src="<?php yourls_site_url(); ?>/js/tablesaw/tablesaw-init.js" type="text/javascript"></script>
 	<?php } ?>
 	<?php if ( $insert ) { ?>
 		<script src="<?php yourls_site_url(); ?>/js/insert.js?v=<?php echo YOURLS_VERSION; ?>" type="text/javascript"></script>
@@ -663,7 +665,7 @@ class yourls_table_add_row_callback {
  *
  */
 function yourls_table_head() {
-	$start = '<table id="main_table" class="tblSorter"><thead><tr>'."\n";
+	$start = '<table id="main_table" class="tablesaw" data-tablesaw-sortable><thead><tr>'."\n";
 	echo yourls_apply_filter( 'table_head_start', $start );
 
 	$cells = yourls_apply_filter( 'table_head_cells', array(
@@ -675,7 +677,7 @@ function yourls_table_head() {
 		'actions'  => yourls__( 'Actions' )
 	) );
 	foreach( $cells as $k => $v ) {
-		echo "<th tabindex='0' scope='col' id='main_table_head_$k'>$v</th>\n";
+		echo "<th data-tablesaw-sortable-col scope='col' id='main_table_head_$k'>$v</th>\n";
 	}
 
 	$end = "</tr></thead>\n";
