@@ -677,7 +677,9 @@ function yourls_table_head() {
 		'actions'  => yourls__( 'Actions' )
 	) );
 	foreach( $cells as $k => $v ) {
-		echo "<th data-tablesaw-sortable-col scope='col' id='main_table_head_$k'>$v</th>\n";
+		echo "<th data-tablesaw-sortable-col scope='col' id='main_table_head_$k'";
+		if($k == 'date'){echo ' data-tablesaw-sortable-default-col';}
+		echo ">$v</th>\n";
 	}
 
 	$end = "</tr></thead>\n";
