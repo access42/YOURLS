@@ -229,7 +229,7 @@ td.actions .button.loading, #add-button.loading {
 	font-size:0.625em;
 }
 .error {
-	color: red;
+	color: #DE0B0B;
 	background:#fee;
 }
 .warning {
