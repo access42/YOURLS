@@ -7,33 +7,28 @@ table.tablesaw {
   border-spacing: 1px;
 }
 
+.tablesaw-sortable-head{
+	position:static
+}
+
 table.tablesaw tr{
 	border:1px solid #CDCDCD;
 }
 
-table.tablesaw thead tr th, table.tablesaw tfoot tr th, table.tablesaw th.header {
+table.tablesaw td,
+table.tablesaw th{
+	border:1px solid #CDCDCD
+}
+
+table.tablesaw th{
 	background-color: #C7E7FF;
 	font-size:0.75em;
 	padding: 4px;
 }
 
-table.tablesaw thead tr .tablesorter-header {
-	background-image: url('../images/bg.gif');
-	background-repeat: no-repeat;
-	background-position: center right;
-	cursor: pointer;
-	padding-right:10px;
-}
-
-table.tablesaw thead tr .sorter-false {
-	background-image: none;
-	cursor:default;
-}
-
 table.tablesaw tbody td {
 	color: #3D3D3D;
 	padding: 4px;
-	background-color: #FFF;
 	vertical-align: top;
 }
 
@@ -53,8 +48,7 @@ table.tablesaw tbody tr:nth-child(even):hover td  {
 	background-color:#F1FFF6;
 }
 
-.tablesort{
-	border:1px solid #CDCDCD;
-	border-top:0;
-	background-color: #E3F3FF;
+.tablesaw-sortable-arrow:after{
+	font-weight:bold;
+	font-size:1.3em;
 }

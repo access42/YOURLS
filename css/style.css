@@ -12,6 +12,10 @@ body {
 	outline:2px solid orange;
 }
 
+button:hover{
+	cursor:pointer;
+}
+
 #wrap {
 	width:60em;
 	max-width:95%;
@@ -28,11 +32,13 @@ body {
 	-webkit-border-radius:20px;
 	border-radius:20px;
 }
+
 .clear:after{
 	content:'';
 	display:block;
 	clear:both;
 }
+
 .hide-if-no-js {display: none;}
 p, label,td {
 	font-family: Verdana, Arial;
@@ -116,6 +122,12 @@ input.primary {
 input.text:focus, textarea:focus {
 	border:2px solid #3371A8;
 	margin:0px;
+}
+
+.tablesort{
+	border:1px solid #CDCDCD;
+	border-top:0;
+	background-color: #E3F3FF;
 }
 
 #filter_options label,
