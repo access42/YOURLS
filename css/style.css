@@ -95,7 +95,6 @@ input, textarea {
 }
 Input.text, select, textarea {
 	font-family: Verdana, Arial;
-	font-size:0.925em;
 	color: #54503C;
 	background-color: #FFFFFF;
 	border: 1px solid #88c0eb;
