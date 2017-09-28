@@ -36,7 +36,8 @@ yourls_html_menu();
 		
 		<p><?php yourls_e( 'Click and drag links to your toolbar (or right-click and bookmark it)' ); ?></p>
         
-        <table class="tblSorter" cellpadding="0" cellspacing="1">
+      <table class="tablesaw">
+      <caption class="sr"><?php yourls_e( 'The Bookmarklets' ); ?></caption>
 			<thead>
 			<tr>
 				<td>&nbsp;</td>
@@ -296,7 +297,7 @@ TUMBLR;
 	<h2><?php yourls_e( 'Secure passwordless API call' ); ?></h2>
 	
 		<p><?php
-		yourls_e( 'YOURLS allows API calls the old fashioned way, using <tt>username</tt> and <tt>password</tt> parameters.' );
+		yourls_e( 'YOURLS allows API calls the old fashioned way, using <code>username</code> and <code>password</code> parameters.' );
 		echo "\n";
 		yourls_e( "If you're worried about sending your credentials into the wild, you can also make API calls without using your login or your password, using a secret signature token." );
 		?></p>
@@ -308,22 +309,22 @@ TUMBLR;
 		
 		<ul>
 			<li><h3><?php yourls_e( 'Usage of the signature token' ); ?></h3>
-			<p><?php yourls_e( 'Simply use parameter <tt>signature</tt> in your API requests. Example:' ); ?></p>
+			<p><?php yourls_e( 'Simply use parameter <code>signature</code> in your API requests. Example:' ); ?></p>
 			<p><code><?php echo YOURLS_SITE; ?>/yourls-api.php?signature=<?php echo yourls_auth_signature(); ?>&action=...</code></p>
 			</li>
 		
 			<li><h3><?php yourls_e( 'Usage of a time limited signature token' ); ?></h3>
 <pre><code>&lt;?php
 $timestamp = time();
-<tt>// <?php yourls_e( 'actual value:' ); ?> $time = <?php $time = time(); echo $time; ?></tt>
+<span>// <?php yourls_e( 'actual value:' ); ?> $time = <?php $time = time(); echo $time; ?></span>
 $signature = md5( $timestamp . '<?php echo yourls_auth_signature(); ?>' ); 
-<tt>// <?php yourls_e( 'actual value:' ); ?> $signature = "<?php $sign = md5( $time. yourls_auth_signature() ); echo $sign; ?>"</tt>
+<span>// <?php yourls_e( 'actual value:' ); ?> $signature = "<?php $sign = md5( $time. yourls_auth_signature() ); echo $sign; ?>"</span>
 ?> 
 </code></pre>
-		<p><?php yourls_e( 'Now use parameters <tt>signature</tt> and <tt>timestamp</tt> in your API requests. Example:' ); ?></p>
+		<p><?php yourls_e( 'Now use parameters <code>signature</code> and <code>timestamp</code> in your API requests. Example:' ); ?></p>
 		<p><code><?php echo YOURLS_SITE; ?>/yourls-api.php?timestamp=<strong>$timestamp</strong>&signature=<strong>$signature</strong>&action=...</code></p>
 		<p><?php yourls_e( 'Actual values:' ); ?><br/>
-		<tt><?php echo YOURLS_SITE; ?>/yourls-api.php?timestamp=<?php echo $time; ?>&signature=<?php echo $sign; ?>&action=...</tt></p>
+		<code><?php echo YOURLS_SITE; ?>/yourls-api.php?timestamp=<?php echo $time; ?>&signature=<?php echo $sign; ?>&action=...</code></p>
 		<p><?php yourls_se( 'This URL would be valid for only %s seconds', YOURLS_NONCE_LIFE ); ?></p>
 		</li>
 	</ul>

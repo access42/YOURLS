@@ -16,6 +16,11 @@ button:hover{
 	cursor:pointer;
 }
 
+.sr{/**For ScreenReader only**/
+	position:absolute;
+	top:-10000%;
+}
+
 #wrap {
 	width:60em;
 	max-width:95%;
@@ -40,12 +45,13 @@ button:hover{
 }
 
 .hide-if-no-js {display: none;}
-p, label,td {
+
+p, label,td, li {
 	font-family: Verdana, Arial;
 	font-size:0.75em;
 }
 
-p label, td label{
+p *, td *, li *{
 	font-size:1em;
 }
 a, a:link, a:active, a:visited {
@@ -88,7 +94,9 @@ ul#admin_menu li:hover {
 code {
 	background:#eaeaef;
 	padding:0 2px;
+	font-size:1.3em;
 }
+
 tt {
 	background:#ffc;
 	padding:0 2px;		
