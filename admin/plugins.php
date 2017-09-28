@@ -75,7 +75,8 @@ yourls_html_menu();
 	
 	<p id="plugin_summary"><?php /* //translators: "you have '3 plugins' installed and '1' activated" */ yourls_se( 'You currently have <strong>%1$s</strong> installed, and <strong>%2$s</strong> activated', $plugins_count, $count_active ); ?></p>
 
-	<table id="main_table" class="tblSorter">
+	<table id="main_table" class="tablesaw">
+	<caption class="sr"><?php yourls_e( 'Plugins' ); ?></caption>
 	<thead>
 		<tr>
 			<th scope="col"><?php yourls_e( 'Plugin Name' ); ?></th>
