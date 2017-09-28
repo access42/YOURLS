@@ -227,6 +227,65 @@ td.actions .button.loading, #add-button.loading {
 #main_table tfoot th, #main_table tfoot th div {
 	font-size:0.625em;
 }
+
+#filter_form{
+	float:left;
+	text-align:left;
+	max-width:69%;
+}
+
+#filter_buttons{
+	float:right;
+}
+
+#pagination {
+	font-weight:bold;
+	font-size:0.7em;
+	text-align:right;
+	float:right;
+	width:30%;
+	padding:5px 5px 0 0;
+}
+
+#pagination li{
+	list-style:none;
+	display:inline-block;
+}
+
+.navigation .nav_total{
+	display:block;
+	margin-bottom:10px;
+}
+
+.navigation .nav_link a, .navigation .nav_current {
+	border:1px solid #CDCDCD;
+	margin:0px 2px;
+	padding:2px 1px;
+	background:#fff;
+	text-align:center;
+	min-width:15px;
+	display:inline-block;
+}
+
+.navigation .nav_current {
+	border:0px;
+	background:none;
+}
+
+.navigation .nav_first a, .navigation .nav_last a {
+	padding:2px 2px;
+}
+
+.navigation .nav_prev:before, .navigation .nav_next:after {
+	content:"...";
+}
+
+.navigation .nav_link a:hover {
+	border:1px solid #BCD9E8;
+	background:#BCD9E8;
+	text-decoration:none;
+}
+
 .error {
 	color: #DE0B0B;
 	background:#fee;
